@@ -1,8 +1,9 @@
-## Guessing Game
-
-```mermaid
 flowchart TD
-Start([Start]) --> End([End])
-```
-flowchart LR
-    id1[Guess a number]
+    Start([Start Game]) --> InputNum[Player guesses a number]
+    InputNum --> CheckGuess{Is the guess correct?}
+    
+    CheckGuess -- Too Low --> LowHint(["Too low! Try again."]) --> InputNum
+    CheckGuess -- Too High --> HighHint(["Too high! Try again."]) --> InputNum
+    CheckGuess -- Correct --> Win([You guessed it!])
+    
+    Win --> End([Game Over])
